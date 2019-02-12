@@ -5,4 +5,4 @@
 [![Build Status](https://travis-ci.org/Nastya-1000/project-lvl2-s417.svg?branch=master)](https://travis-ci.org/Nastya-1000/project-lvl2-s417)
 
 ### Get help
-[![asciicast](https://asciinema.org/connect/7b548d1f-2283-4679-a233-10b24e27e74e.png)](https://asciinema.org/connect/7b548d1f-2283-4679-a233-10b24e27e74e)
+[![asciicast](https://asciinema.org/a/VFe11g8vqW5K3smjutZZh94wd.png)](https://asciinema.org/a/VFe11g8vqW5K3smjutZZh94wd)
