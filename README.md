@@ -6,3 +6,6 @@
 
 ### Get help
 [![asciicast](https://asciinema.org/a/VFe11g8vqW5K3smjutZZh94wd.png)](https://asciinema.org/a/VFe11g8vqW5K3smjutZZh94wd)
+
+### Compare 2 JSON files
+[![asciicast](https://asciinema.org/a/ge8zzK1ZwqWAOSHticIfSxPQN.png)](https://asciinema.org/a/ge8zzK1ZwqWAOSHticIfSxPQN)
