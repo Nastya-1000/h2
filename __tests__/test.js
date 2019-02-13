@@ -6,6 +6,6 @@ test('should work', () => {
   const pathToFile2 = '__tests__/__fixtures__/after.json';
   const pathToResult = '__tests__/__fixtures__/result.txt';
   const actual = genDiff(pathToFile1, pathToFile2);
-  const expected = fs.readFileSync(pathToResult, 'utf-8').replace(/\n$/m, '');
+  const expected = fs.readFileSync(pathToResult, 'utf-8');
   expect(actual).toBe(expected);
 });
