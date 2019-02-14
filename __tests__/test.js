@@ -11,7 +11,7 @@ test('should work for json', () => {
 });
 
 test('should work for yaml', () => {
-  const pathToFile1 = '__tests__/__fixtures__/before.yml';
+  const pathToFile1 = '__tests__/__fixtures__/before.yaml';
   const pathToFile2 = '__tests__/__fixtures__/after.yml';
   const pathToResult = '__tests__/__fixtures__/result.txt';
   const actual = genDiff(pathToFile1, pathToFile2);
