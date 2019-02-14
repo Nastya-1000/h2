@@ -6,4 +6,4 @@ const parsers = {
   '.yaml': yaml.safeLoad,
 };
 
-export default (filepath, format) => parsers[format](filepath);
+export default (filepath, extension) => parsers[extension](filepath);
