@@ -12,3 +12,6 @@
 
 ### Compare 2 YAML files
 [![asciicast](https://asciinema.org/a/8vYOFUTZa1qJdp278ULdTnvn8.png)](https://asciinema.org/a/8vYOFUTZa1qJdp278ULdTnvn8)
+
+### Compare 2 INI files
+[![asciicast](https://asciinema.org/a/baEV3vpDlud61c7fN9j2VPfUv.png)](https://asciinema.org/a/baEV3vpDlud61c7fN9j2VPfUv)

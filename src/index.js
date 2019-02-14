@@ -8,7 +8,7 @@ const absFilepath = filepath => path.resolve(process.cwd(), filepath);
 const getObjFromFile = (filepath) => {
   const absPathToFile = absFilepath(filepath);
   const extensionOfFile = path.extname(absPathToFile);
-  const objFromFile = parser(fs.readFileSync(absPathToFile), extensionOfFile);
+  const objFromFile = parser(fs.readFileSync(absPathToFile, 'utf-8'), extensionOfFile);
   return [objFromFile, extensionOfFile];
 };
 

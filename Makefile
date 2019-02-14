@@ -13,6 +13,9 @@ start-json:
 start-yaml:
 	npx babel-node src/bin/gendiff __tests__/__fixtures__/before.yaml __tests__/__fixtures__/after.yml
 
+start-ini:
+	npx babel-node src/bin/gendiff __tests__/__fixtures__/before.ini __tests__/__fixtures__/after.ini
+
 start-wrong:
 	npx babel-node src/bin/gendiff __tests__/__fixtures__/before.yaml __tests__/__fixtures__/after.json
 

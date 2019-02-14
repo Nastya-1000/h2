@@ -1,6 +1,6 @@
 {
   "name": "project2_nnn",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Project lvl2",
   "keywords": [
     "project",
@@ -44,6 +44,7 @@
   "dependencies": {
     "commander": "^2.19.0",
     "fs": "0.0.1-security",
+    "ini": "^1.3.5",
     "js-yaml": "^3.12.1",
     "lodash": "^4.17.11",
     "path": "^0.12.7"
