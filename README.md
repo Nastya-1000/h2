@@ -6,21 +6,20 @@
 
 <details>
 <summary>Get help</summary>
-[![asciicast](https://asciinema.org/a/VFe11g8vqW5K3smjutZZh94wd.png)](https://asciinema.org/a/VFe11g8vqW5K3smjutZZh94wd)
+<a href="https://asciinema.org/a/VFe11g8vqW5K3smjutZZh94wd" target="_blank"><img src="https://asciinema.org/a/VFe11g8vqW5K3smjutZZh94wd.svg" /></a>
 </details>
-
 
 <details>
 <summary>Compare plain files</summary>
-[![asciicast](https://asciinema.org/a/ge8zzK1ZwqWAOSHticIfSxPQN.png)](https://asciinema.org/a/ge8zzK1ZwqWAOSHticIfSxPQN)
+<a href="https://asciinema.org/a/ge8zzK1ZwqWAOSHticIfSxPQN" target="_blank"><img src="https://asciinema.org/a/ge8zzK1ZwqWAOSHticIfSxPQN.svg" /></a>
 
-![asciicast](https://asciinema.org/a/M9AtYa00gWIZA552Ib67lfMQl.png)](https://asciinema.org/a/M9AtYa00gWIZA552Ib67lfMQl)
+<a href="https://asciinema.org/a/M9AtYa00gWIZA552Ib67lfMQl" target="_blank"><img src="https://asciinema.org/a/M9AtYa00gWIZA552Ib67lfMQl.svg" /></a>
 
-[![asciicast](https://asciinema.org/a/baEV3vpDlud61c7fN9j2VPfUv.png)](https://asciinema.org/a/baEV3vpDlud61c7fN9j2VPfUv)
+<a href="https://asciinema.org/a/baEV3vpDlud61c7fN9j2VPfUv" target="_blank"><img src="https://asciinema.org/a/baEV3vpDlud61c7fN9j2VPfUv.svg" /></a>
 </details>
 
 
 <details>
 <summary>Compare nested files</summary>
-[![asciicast](https://asciinema.org/a/COcYbJyUuGi4tYdyGkHDqpO3o.png)](https://asciinema.org/a/COcYbJyUuGi4tYdyGkHDqpO3o)
+<a href="https://asciinema.org/a/COcYbJyUuGi4tYdyGkHDqpO3o" target="_blank"><img src="https://asciinema.org/a/COcYbJyUuGi4tYdyGkHDqpO3o.svg" /></a>
 </details>
