@@ -12,6 +12,8 @@ const getObjFromFile = (filepath) => {
   return objFromFile;
 };
 
+const hasBoth = (obj1, obj2, key) => _.has(obj1, key) && _.has(obj2, key);
+
 const typeVal = [
   {
     type: 'nested',
@@ -20,12 +22,12 @@ const typeVal = [
   },
   {
     type: 'unchanged',
-    check: (obj1, obj2, key) => _.has(obj1, key) && _.has(obj2, key) && obj1[key] === obj2[key],
+    check: (obj1, obj2, key) => hasBoth(obj1, obj2, key) && obj1[key] === obj2[key],
     process: (obj1, obj2, key) => ({ value: obj1[key] }),
   },
   {
     type: 'changed',
-    check: (obj1, obj2, key) => _.has(obj1, key) && _.has(obj2, key) && obj1[key] !== obj2[key],
+    check: (obj1, obj2, key) => hasBoth(obj1, obj2, key) && obj1[key] !== obj2[key],
     process: (obj1, obj2, key) => ({ value1: obj1[key], value2: obj2[key] }),
   },
   {
@@ -53,12 +55,14 @@ const genAST = (obj1, obj2) => {
 
 const addValue = (value, depth) => (_.isObject(value) ? `{\n${Object.keys(value).map(key => `${' '.repeat(depth + 4)}   ${key}: ${value[key]}`).join('\n')}\n${' '.repeat(depth + 2)} }` : value);
 
+const strTemplate = (key, obj, depth, sign, value) => `${' '.repeat(depth)} ${sign} ${key}: ${addValue(obj[key][value], depth)}`;
+
 const strByType = {
   nested: (key, obj, depth, f) => [`${' '.repeat(depth)}   ${key}: {\n${f(obj[key].children, depth + 4)}\n${' '.repeat(depth + 2)} }`],
-  unchanged: (key, obj, depth) => [`${' '.repeat(depth)}   ${key}: ${addValue(obj[key].value, depth)}`],
-  changed: (key, obj, depth) => [`${' '.repeat(depth)} - ${key}: ${addValue(obj[key].value1, depth)}`, `${' '.repeat(depth)} + ${key}: ${addValue(obj[key].value2, depth)}`],
-  deleted: (key, obj, depth) => [`${' '.repeat(depth)} - ${key}: ${addValue(obj[key].value, depth)}`],
-  added: (key, obj, depth) => [`${' '.repeat(depth)} + ${key}: ${addValue(obj[key].value, depth)}`],
+  unchanged: (key, obj, depth) => [strTemplate(key, obj, depth, ' ', 'value')],
+  changed: (key, obj, depth) => [strTemplate(key, obj, depth, '-', 'value1'), strTemplate(key, obj, depth, '+', 'value2')],
+  deleted: (key, obj, depth) => [strTemplate(key, obj, depth, '-', 'value')],
+  added: (key, obj, depth) => [strTemplate(key, obj, depth, '+', 'value')],
 };
 
 const render = (ast, depth = 1) => {
