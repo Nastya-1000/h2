@@ -22,11 +22,3 @@ test.each(argumentsForTest)(
     expect(actual).toBe(expected);
   },
 );
-
-test('should fail for different formats', () => {
-  const pathToFile1 = makeFilepath(dirpath, 'before', '.yaml');
-  const pathToFile2 = makeFilepath(dirpath, 'after', '.json');
-  const actual = genDiff(pathToFile1, pathToFile2);
-  const expected = 'Files have different formats';
-  expect(actual).toBe(expected);
-});
