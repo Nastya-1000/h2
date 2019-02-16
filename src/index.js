@@ -2,6 +2,7 @@ import _ from 'lodash';
 import fs from 'fs';
 import path from 'path';
 import parse from './parsers';
+import render from './renderers';
 
 const absFilepath = filepath => path.resolve(process.cwd(), filepath);
 
@@ -52,31 +53,12 @@ const genAST = (obj1, obj2) => {
   }, {});
 };
 
-
-const addValue = (value, depth) => (_.isObject(value) ? `{\n${Object.keys(value).map(key => `${' '.repeat(depth + 4)}   ${key}: ${value[key]}`).join('\n')}\n${' '.repeat(depth + 2)} }` : value);
-
-const strTemplate = (key, obj, depth, sign, value) => `${' '.repeat(depth)} ${sign} ${key}: ${addValue(obj[key][value], depth)}`;
-
-const strByType = {
-  nested: (key, obj, depth, f) => [`${' '.repeat(depth)}   ${key}: {\n${f(obj[key].children, depth + 4)}\n${' '.repeat(depth + 2)} }`],
-  unchanged: (key, obj, depth) => [strTemplate(key, obj, depth, ' ', 'value')],
-  changed: (key, obj, depth) => [strTemplate(key, obj, depth, '-', 'value1'), strTemplate(key, obj, depth, '+', 'value2')],
-  deleted: (key, obj, depth) => [strTemplate(key, obj, depth, '-', 'value')],
-  added: (key, obj, depth) => [strTemplate(key, obj, depth, '+', 'value')],
-};
-
-const render = (ast, depth = 1) => {
-  const keys = Object.keys(ast);
-  const resultArr = keys.reduce((acc, key) => [...acc, ...strByType[ast[key].type](key, ast, depth, render)], []);
-  return resultArr.map(str => str).join('\n');
-};
-
-
-const genDiff = (pathToFile1, pathToFile2) => {
+const genDiff = (pathToFile1, pathToFile2, format) => {
   const objFromFile1 = getObjFromFile(pathToFile1);
   const objFromFile2 = getObjFromFile(pathToFile2);
   const ast = genAST(objFromFile1, objFromFile2);
-  return `{\n${render(ast)}\n}`;
+  return render(ast, format);
+  // return `{\n${render(ast, format)}\n}`;
 };
 
 export default genDiff;

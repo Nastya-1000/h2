@@ -23,3 +23,9 @@
 <summary>Compare nested files</summary>
 <a href="https://asciinema.org/a/COcYbJyUuGi4tYdyGkHDqpO3o" target="_blank"><img src="https://asciinema.org/a/COcYbJyUuGi4tYdyGkHDqpO3o.svg" /></a>
 </details>
+
+
+<details>
+<summary>Compare files with plain-format result</summary>
+<a href="https://asciinema.org/a/8ORgNNFdgz5urNT6gWgoZrm3G" target="_blank"><img src="https://asciinema.org/a/8ORgNNFdgz5urNT6gWgoZrm3G.svg" /></a>
+</details>

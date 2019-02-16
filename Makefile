@@ -27,3 +27,9 @@ start-Naml:
 
 start-Nini:
 	npx babel-node src/bin/gendiff __tests__/__fixtures__/nested/before.ini __tests__///__fixtures__/nested/after.ini
+
+start-Njson-plain:
+	npx babel-node src/bin/gendiff --format plain __tests__/__fixtures__/nested/before.json __tests__///__fixtures__/nested/after.json
+
+start-json-plain:
+	npx babel-node src/bin/gendiff --format plain __tests__/__fixtures__/plain/before.json __tests__///__fixtures__/plain/after.json
