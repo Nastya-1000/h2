@@ -17,38 +17,38 @@ const hasBoth = (obj1, obj2, key) => _.has(obj1, key) && _.has(obj2, key);
 const typeVal = [
   {
     type: 'nested',
-    check: (obj1, obj2, key) => _.isObject(obj1[key]) && _.isObject(obj2[key]),
-    process: (obj1, obj2, key, f) => ({ children: f(obj1[key], obj2[key]) }),
+    check: (key, obj1, obj2) => _.isObject(obj1[key]) && _.isObject(obj2[key]),
+    process: (key, obj1, obj2, f) => ({ children: f(obj1[key], obj2[key]) }),
   },
   {
     type: 'unchanged',
-    check: (obj1, obj2, key) => hasBoth(obj1, obj2, key) && obj1[key] === obj2[key],
-    process: (obj1, obj2, key) => ({ value: obj1[key] }),
+    check: (key, obj1, obj2) => hasBoth(obj1, obj2, key) && obj1[key] === obj2[key],
+    process: (key, obj1) => ({ value: obj1[key] }),
   },
   {
     type: 'changed',
-    check: (obj1, obj2, key) => hasBoth(obj1, obj2, key) && obj1[key] !== obj2[key],
-    process: (obj1, obj2, key) => ({ value1: obj1[key], value2: obj2[key] }),
+    check: (key, obj1, obj2) => hasBoth(obj1, obj2, key) && obj1[key] !== obj2[key],
+    process: (key, obj1, obj2) => ({ value1: obj1[key], value2: obj2[key] }),
   },
   {
     type: 'deleted',
-    check: (obj1, obj2, key) => _.has(obj1, key),
-    process: (obj1, obj2, key) => ({ value: obj1[key] }),
+    check: (key, obj1) => _.has(obj1, key),
+    process: (key, obj1) => ({ value: obj1[key] }),
   },
   {
     type: 'added',
-    check: (obj1, obj2, key) => _.has(obj2, key),
-    process: (obj1, obj2, key) => ({ value: obj2[key] }),
+    check: (key, obj1, obj2) => _.has(obj2, key),
+    process: (key, obj1, obj2) => ({ value: obj2[key] }),
   },
 ];
 
-const getTypeVal = (obj1, obj2, key) => typeVal.find(({ check }) => check(obj1, obj2, key));
+const getTypeVal = (obj1, obj2, key) => typeVal.find(({ check }) => check(key, obj1, obj2));
 
 const genAST = (obj1, obj2) => {
   const keys = _.union(Object.keys(obj1), Object.keys(obj2));
   return keys.reduce((acc, key) => {
     const { type, process } = getTypeVal(obj1, obj2, key);
-    return { ...acc, [key]: { type, ...process(obj1, obj2, key, genAST) } };
+    return { ...acc, [key]: { type, ...process(key, obj1, obj2, genAST) } };
   }, {});
 };
 
