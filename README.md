@@ -9,17 +9,22 @@
 [![asciicast](https://asciinema.org/a/VFe11g8vqW5K3smjutZZh94wd.png)](https://asciinema.org/a/VFe11g8vqW5K3smjutZZh94wd)
 </details>
 
+
 <details>
-<summary>Compare 2 JSON files</summary>
+<summary>Compare plain files</summary>
+### JSON
 [![asciicast](https://asciinema.org/a/ge8zzK1ZwqWAOSHticIfSxPQN.png)](https://asciinema.org/a/ge8zzK1ZwqWAOSHticIfSxPQN)
-</details>
 
-<details>
-<summary>Compare 2 YAML files</summary>
-[![asciicast](https://asciinema.org/a/M9AtYa00gWIZA552Ib67lfMQl.png)](https://asciinema.org/a/M9AtYa00gWIZA552Ib67lfMQl)
-</details>
+### YAML
+![asciicast](https://asciinema.org/a/M9AtYa00gWIZA552Ib67lfMQl.png)](https://asciinema.org/a/M9AtYa00gWIZA552Ib67lfMQl)
 
-<details>
-<summary>Compare 2 INI files</summary>
+### INI
 [![asciicast](https://asciinema.org/a/baEV3vpDlud61c7fN9j2VPfUv.png)](https://asciinema.org/a/baEV3vpDlud61c7fN9j2VPfUv)
+</details>
+
+
+<details>
+<summary>Compare nested files</summary>
+### JSON, YAML, INI
+[![asciicast](https://asciinema.org/a/COcYbJyUuGi4tYdyGkHDqpO3o.png)](https://asciinema.org/a/COcYbJyUuGi4tYdyGkHDqpO3o)
 </details>

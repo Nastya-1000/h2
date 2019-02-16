@@ -8,16 +8,22 @@ lint:
 	npx eslint .
 
 start-json:
-	npx babel-node src/bin/gendiff __tests__/__fixtures__/before.json __tests__///__fixtures__/after.json
+	npx babel-node src/bin/gendiff __tests__/__fixtures__/plain/before.json __tests__///__fixtures__/plain/after.json
 
 start-yaml:
-	npx babel-node src/bin/gendiff __tests__/__fixtures__/before.yaml __tests__/__fixtures__/after.yml
+	npx babel-node src/bin/gendiff __tests__/__fixtures__/plain/before.yaml __tests__/__fixtures__/plain/after.yml
 
 start-ini:
-	npx babel-node src/bin/gendiff __tests__/__fixtures__/before.ini __tests__/__fixtures__/after.ini
-
-start-wrong:
-	npx babel-node src/bin/gendiff __tests__/__fixtures__/before.yaml __tests__/__fixtures__/after.json
+	npx babel-node src/bin/gendiff __tests__/__fixtures__/plain/before.ini __tests__/__fixtures__/plain/after.ini
 
 test:
-	 npm test --watch
+	npm test --watch
+
+start-Njson:
+	npx babel-node src/bin/gendiff __tests__/__fixtures__/nested/before.json __tests__///__fixtures__/nested/after.json
+
+start-Naml:
+	npx babel-node src/bin/gendiff __tests__/__fixtures__/nested/before.yaml __tests__///__fixtures__/nested/after.yml
+
+start-Nini:
+	npx babel-node src/bin/gendiff __tests__/__fixtures__/nested/before.ini __tests__///__fixtures__/nested/after.ini
