@@ -5,7 +5,7 @@ import genDiff from '../src';
 const extensionsOfArgs = [['.json', '.json'], ['.yaml', '.yml'], ['.ini', '.ini']];
 const dirpath = '__tests__/__fixtures__';
 const dirnames = ['plain', 'nested'];
-const formats = ['tree', 'plain'];
+const formats = ['tree', 'plain', 'json'];
 
 const makeFilepath = (pathToDir, dirname, name, extension) => path.join(pathToDir, dirname, `${name}${extension}`);
 
