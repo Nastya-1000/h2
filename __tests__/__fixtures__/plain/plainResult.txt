@@ -1,3 +1,4 @@
+Property 'host' was not changed.
 Property 'timeout' was updated. From 50 to 20.
 Property 'proxy' was removed.
 Property 'follow' was removed.

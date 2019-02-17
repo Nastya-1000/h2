@@ -58,7 +58,6 @@ const genDiff = (pathToFile1, pathToFile2, format) => {
   const objFromFile2 = getObjFromFile(pathToFile2);
   const ast = genAST(objFromFile1, objFromFile2);
   return render(ast, format);
-  // return `{\n${render(ast, format)}\n}`;
 };
 
 export default genDiff;
