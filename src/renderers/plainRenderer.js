@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 const addValue = value => (_.isObject(value) ? '[complex value]' : value);
 
-const makeStr = (key, obj, path, action) => `Property '${path}${key}' was ${action}`;
+const makeStr = (obj, path, action) => `Property '${path}${obj.key}' was ${action}`;
 
 const actByType = {
   unchanged: () => 'not changed.',
@@ -12,17 +12,13 @@ const actByType = {
 };
 
 const strByType = {
-  nested: (key, obj, path, f) => f(obj[key].children, `${path}${key}.`),
-  unchanged: (key, obj, path) => makeStr(key, obj, path, actByType[obj[key].type]()),
-  changed: (key, obj, path) => makeStr(key, obj, path, actByType[obj[key].type](obj[key], 'value1', 'value2')),
-  deleted: (key, obj, path) => makeStr(key, obj, path, actByType[obj[key].type]()),
-  added: (key, obj, path) => makeStr(key, obj, path, actByType[obj[key].type](obj[key], 'value')),
+  nested: (obj, path, f) => f(obj.children, `${path}${obj.key}.`),
+  unchanged: (obj, path) => makeStr(obj, path, actByType[obj.type]()),
+  changed: (obj, path) => makeStr(obj, path, actByType[obj.type](obj, 'value1', 'value2')),
+  deleted: (obj, path) => makeStr(obj, path, actByType[obj.type]()),
+  added: (obj, path) => makeStr(obj, path, actByType[obj.type](obj, 'value')),
 };
 
-const render = (ast, path = '') => {
-  const keys = Object.keys(ast);
-  const resultArr = keys.reduce((acc, key) => [...acc, strByType[ast[key].type](key, ast, path, render)], []);
-  return resultArr.map(str => str).join('\n');
-};
+const render = (ast, path = '') => ast.map(obj => strByType[obj.type](obj, path, render)).join('\n');
 
 export default render;

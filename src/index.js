@@ -47,10 +47,10 @@ const getTypeVal = (obj1, obj2, key) => typeVal.find(({ check }) => check(key, o
 
 const genAST = (obj1, obj2) => {
   const keys = _.union(Object.keys(obj1), Object.keys(obj2));
-  return keys.reduce((acc, key) => {
+  return keys.map((key) => {
     const { type, process } = getTypeVal(obj1, obj2, key);
-    return { ...acc, [key]: { type, ...process(key, obj1, obj2, genAST) } };
-  }, {});
+    return { key, type, ...process(key, obj1, obj2, genAST) };
+  });
 };
 
 const genDiff = (pathToFile1, pathToFile2, format) => {
